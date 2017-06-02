@@ -2,7 +2,7 @@ from PIL import Image
 from math import floor
 
 # TODO add the ability for wider rule sets
-def create_automation(rule_list, steps, initial=[0,1,0]):
+def create_automaton(rule_list, steps, initial=[0,1,0]):
 
     def get_rule(image, x, y):
         bin_str = ''

@@ -1,7 +1,7 @@
 from PIL import Image
 from math import floor
 
-def create_automaton(rule_list, steps, initial=[0,1,0]):
+def create_automaton(rule_list, steps):
 
     def get_rule(image, x, y):
         bin_str = ''
@@ -29,9 +29,7 @@ def create_automaton(rule_list, steps, initial=[0,1,0]):
 
     im = Image.new('L', (steps*2+1, steps+1), 'white')
 
-    center = (floor(im.width/2)) # Places inital pixels
-    for x in range(center-1, center+2):
-        im.putpixel((x, 0), (1-initial[x-center+1])*255)
+    im.putpixel((floor(im.width/2), 0), 0)
 
     for y in range(1, im.height): # Walks the image
         for x in range(im.width):
